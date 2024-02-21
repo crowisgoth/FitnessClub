@@ -1,4 +1,4 @@
--- 
+--
 -- depends: 20240219_01_luBTO
 
 create procedure new_user_proc()
@@ -9,8 +9,6 @@ create procedure new_user_proc()
 
     end;
     $$;
-
-
 
 CREATE FUNCTION new_client_func() RETURNS TRIGGER AS $$
     BEGIN

@@ -2,13 +2,13 @@
 -- depends:
 CREATE TABLE IF NOT EXISTS Type_Of_Workouts(
     id_work SERIAL PRIMARY KEY,
-    type char(50)
+    type varchar(50) unique
 );
 
 CREATE TABLE IF NOT EXISTS Instructors (
 instructor_id SERIAL PRIMARY KEY,
 name VARCHAR(50),
-specialty int references Type_Of_Workouts(id_work),
+speciality VARCHAR(50) references Type_Of_Workouts(type),
 hire_date DATE
 );
 
@@ -36,9 +36,9 @@ CREATE TABLE IF NOT EXISTS Workouts (
     date DATE,
     time TIME,
     instructor_id INT,
-    foreign key (instructor_id) references Instructors(instructor_id),
+    foreign key (instructor_id) references Instructors(instructor_id) ON DELETE CASCADE,
     FOREIGN KEY (client_id) REFERENCES Clients(client_id),
-    type_workout int unique references Type_of_workouts(id_work)
+    type_workout int unique references Type_of_workouts(id_work) ON DELETE CASCADE
     -- Добавьте нужные внешние ключи для инструкторов, если применимо
 );
 CREATE TABLE IF NOT EXISTS Halls (
@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS Halls (
 );
 
 INSERT INTO Type_of_workouts(type)
-values ('Легкая атлетика'),
+values ('Кардиозал'),
        ('Тяжелая атлетика'),
        ('Йога');
 
@@ -65,10 +65,10 @@ VALUES (1, 'месячный', '2024-02-01', '2024-02-29'),
        (2, 'годовой', '2024-01-01', '2024-12-31'),
        (3, 'тримесячный', '2024-01-15', '2024-04-15');
 
-INSERT INTO Instructors (name, specialty, hire_date)
-VALUES ('Иванов Иван', 1, '2023-05-15'),
-       ( 'Петрова Ольга', 2, '2022-09-10'),
-       ( 'Сидоров Алексей', 3, '2023-01-20');
+INSERT INTO Instructors (name, speciality, hire_date)
+VALUES ('Иванов Иван', 'Йога', '2023-05-15'),
+       ( 'Петрова Ольга', 'Кардиозал', '2022-09-10'),
+       ( 'Сидоров Алексей', 'Йога', '2023-01-20');
 
 -- Вставка данных в таблицу Workouts
 INSERT INTO Workouts ( client_id, date, time, instructor_id, type_workout)
