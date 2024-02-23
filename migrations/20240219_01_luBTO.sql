@@ -36,15 +36,18 @@ CREATE TABLE IF NOT EXISTS Workouts (
     date DATE,
     time TIME,
     instructor_id INT,
+    hall_id int,
     foreign key (instructor_id) references Instructors(instructor_id) ON DELETE CASCADE,
+    foreign key (hall_id) references Halls(hall_id) on delete cascade,
     FOREIGN KEY (client_id) REFERENCES Clients(client_id),
-    type_workout int unique references Type_of_workouts(id_work) ON DELETE CASCADE
+    type_workout int  references Type_of_workouts(id_work) ON DELETE CASCADE
     -- Добавьте нужные внешние ключи для инструкторов, если применимо
 );
 CREATE TABLE IF NOT EXISTS Halls (
     hall_id SERIAL PRIMARY KEY,
     name VARCHAR(50),
-    capacity INT
+    capacity_max INT,
+    capacity_now int
     -- Другие данные о зале
 );
 
@@ -77,10 +80,10 @@ VALUES ( 1, '2024-02-20', '10:00:00', 1,1),
        ( 3, '2024-02-22', '18:00:00', 3,3);
 
 -- Вставка данных в таблицу Halls
-INSERT INTO Halls (hall_id, name, capacity)
-VALUES (1, 'Зал Йоги', 15),
-       (2, 'Кардиозал', 30),
-       (3, 'Тренажерный зал', 25);
+INSERT INTO Halls (hall_id, name, capacity_max,capacity_now)
+VALUES (1, 'Зал Йоги', 15,0),
+       (2, 'Кардиозал', 30,0),
+       (3, 'Тренажерный зал', 25,0);
 
 
 
