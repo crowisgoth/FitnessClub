@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>hi</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/mainpage.css') }}">
+</head>
+<body>
+    <h1>{{client[0][1]}} {{client[0][2]}}  <br> Занятия и тренер отсутствуют</h1>
+    <h2></h2>
+
+    <div class="indexbutton">
+       <a href="{{ url_for('index') }}">Back to index</a>
+    </div>
+</body>
+</html>

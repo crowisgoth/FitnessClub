@@ -1,0 +1,23 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Тренажерный зал</title>
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/mainpage.css') }}">
+</head>
+<body>
+    <h1>Добро пожаловать в наш тренажерный зал</h1>
+
+    <div class="buttons">
+        <a href="{{ url_for('get_allclients') }}" class="button">Показать всех наших клиентов</a>
+        <a href="{{ url_for('all_halls') }}" class="button">Показать залы для тренировок</a>
+        <a href="trainers.html" class="button">Показать наших тренеров</a>
+        <a href="prices.html" class="button">Посмотреть цены</a>
+    </div>
+</body>
+</html>
+
+

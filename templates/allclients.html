@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block title %}{% endblock %}</title>
+      <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/mainpage.css') }}">
+  </head>
+  <body>
+    <h1>Clients </h1>
+    <ul class="list">
+        {% for client in clients %}
+        <li><a href="{{ url_for('get_client', client_id=client[0]) }}">{{ client[1]}} {{client[2] }}</a></li>
+
+        {% endfor %}
+    </ul>
+  <div class="indexbutton">
+       <a href="{{ url_for('index') }}">Back to index</a>
+    </div>
+  </body>
+</html>

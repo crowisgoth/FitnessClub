@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block title %}{% endblock %}</title>
+      <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/mainpage.css') }}">
+  </head>
+  <body>
+    <h1>Наши залы </h1>
+    <ul>
+        {% for hall in halls %}
+        <li><a href="{{ url_for('current_hall', hall_id=hall[0]) }}">{{ hall[1]}} Вместимость - {{hall[2] }}</a></li>
+        {% endfor %}
+
+    </ul>
+    <div class="indexbutton">
+       <a href="{{ url_for('index') }}">Back to index</a>
+    </div>
+
+
+  </body>
+</html>

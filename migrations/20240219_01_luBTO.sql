@@ -73,17 +73,19 @@ VALUES ('Иванов Иван', 'Йога', '2023-05-15'),
        ( 'Петрова Ольга', 'Кардиозал', '2022-09-10'),
        ( 'Сидоров Алексей', 'Йога', '2023-01-20');
 
+INSERT INTO Halls (name, capacity_max,capacity_now)
+VALUES ( 'Зал Йоги', 15,0),
+       ( 'Кардиозал', 30,0),
+       ( 'Тренажерный зал', 25,0);
+
 -- Вставка данных в таблицу Workouts
-INSERT INTO Workouts ( client_id, date, time, instructor_id, type_workout)
-VALUES ( 1, '2024-02-20', '10:00:00', 1,1),
-       ( 2, '2024-02-21', '16:30:00', 2,2),
-       ( 3, '2024-02-22', '18:00:00', 3,3);
+INSERT INTO Workouts ( client_id, date, time, instructor_id,hall_id, type_workout)
+VALUES ( 1, '2024-02-20', '10:00:00', 1,1,1),
+       ( 2, '2024-02-21', '16:30:00', 2,2,2),
+       ( 3, '2024-02-22', '18:00:00', 3,2,3);
 
 -- Вставка данных в таблицу Halls
-INSERT INTO Halls (hall_id, name, capacity_max,capacity_now)
-VALUES (1, 'Зал Йоги', 15,0),
-       (2, 'Кардиозал', 30,0),
-       (3, 'Тренажерный зал', 25,0);
+
 
 
 
