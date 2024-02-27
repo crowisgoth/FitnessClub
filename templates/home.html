@@ -14,8 +14,8 @@
     <div class="buttons">
         <a href="{{ url_for('get_allclients') }}" class="button">Показать всех наших клиентов</a>
         <a href="{{ url_for('all_halls') }}" class="button">Показать залы для тренировок</a>
-        <a href="trainers.html" class="button">Показать наших тренеров</a>
-        <a href="prices.html" class="button">Посмотреть цены</a>
+        <a href="{{ url_for('all_instructors') }}" class="button">Показать наших тренеров</a>
+        <a href="{{ url_for('show_prices') }}" class="button">Наши цены</a>
     </div>
 </body>
 </html>

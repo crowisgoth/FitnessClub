@@ -1,5 +1,5 @@
 --
--- depends: 20240222_01_3h4wi
+-- depends:
 
 CREATE OR REPLACE FUNCTION increment_capacity()
 RETURNS TRIGGER AS $$

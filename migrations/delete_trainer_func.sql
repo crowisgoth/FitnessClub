@@ -1,5 +1,5 @@
 -- 
--- depends: 20240221_01_AJLtY
+-- depends:
 CREATE or replace function delete_trainer_func() RETURNS TRIGGER AS $$
     BEGIN
     IF not EXISTS(SELECT 1 FROM instructors

@@ -1,5 +1,5 @@
 --
--- depends: 20240219_01_luBTO
+-- depends: 3_views
 
 create procedure new_user_proc()
     language plpgsql as $$

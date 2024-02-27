@@ -1,14 +1,15 @@
 -- 
--- depends: 20240223_02_Bgx7H
+-- depends: 2_inserting_in_table
 create or replace view client_info as
 select
     (select client_id from clients where client_id=workouts.client_id) as client_id,
     (select first_name from clients where client_id=workouts.client_id) as client_fName,
     (select last_name from clients where client_id=workouts.client_id) as client_sName,
+    (select subscription_type from subscriptions where client_id=workouts.client_id) as typesub,
     (select name from instructors where instructor_id = workouts.instructor_id) as instructor_name,
     (select speciality from instructors where instructor_id = workouts.instructor_id) as instructor_speciality
 
-from workouts
+from workouts;
 
 create or replace view clients_without_traine as
 select clients.first_name as Name,clients.last_name as sName

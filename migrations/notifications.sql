@@ -1,5 +1,5 @@
 -- 
--- depends: 20240223_01_mg5QI
+-- depends:
 
 
 CREATE OR REPLACE FUNCTION notification_new_user_func()

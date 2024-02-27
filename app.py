@@ -16,7 +16,7 @@ if __name__ == '__main__':
 def getUser():
     return psycopg2.connect(
 
-        dbname="fitness",
+        dbname="fitness_club",
         user="admin",
         password="admin",
         host="localhost",
@@ -98,3 +98,18 @@ def current_hall(hall_id):
     halls = cur.fetchall()
     conn.close()
     return render_template('halls.html', halls=halls)
+
+@app.route('/trainers')
+def all_instructors():
+    conn = getUser()
+    cur = conn.cursor()
+    cur.execute(f'SELECT * FROM instructors')
+    instructors = cur.fetchall()
+    conn.close()
+    return render_template('trainers.html', instructors=instructors)
+
+@app.route('/prices')
+def show_prices():
+    return render_template('prices.html')
+
+
